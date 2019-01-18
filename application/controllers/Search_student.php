@@ -45,9 +45,14 @@ class Search_student extends CI_Controller
        $this->send_response($data);
         
     }
+    Public function findo()
+    {
+        $id=$this->input->get('id');
+        $data=$this->mongo_db->where(['_id'=>new MongoDB\BSON\ObjectID($id)])->get('student');
+        $this->send_response($data);
+    }
     public function send_response($data)
     {
-        
         return $this->output
             ->set_content_type('application/json')
             ->set_status_header(200) // Return status
@@ -55,3 +60,4 @@ class Search_student extends CI_Controller
     }
 }
 ?>
+
