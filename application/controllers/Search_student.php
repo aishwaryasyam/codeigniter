@@ -28,6 +28,7 @@ class Search_student extends CI_Controller
         $id=$this->input->get("id");
         $data=$this->mongo_db->where(['_id'=>new MongoDB\BSON\ObjectID($id)])->delete('student');
         $this->send_response($data);
+       // echo "Data deleted successfully";
     }
     public function update($id)
     {
